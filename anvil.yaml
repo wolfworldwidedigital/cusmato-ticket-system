@@ -6,18 +6,19 @@ services:
   server_config: {}
 - source: /runtime/services/anvil/users.yml
   client_config: {allow_signup: true, enable_automatically: true, use_email: true,
-    confirm_email: true, allow_remember_me: true, remember_me_days: 30, use_google: true}
+    confirm_email: true, allow_remember_me: true, remember_me_days: 30, use_google: true,
+    use_token: true}
   server_config: {user_table: users}
 - source: /runtime/services/google.yml
   client_config: {}
   server_config: {}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
-  server_config: {}
+  server_config: {test_mode: false}
 startup: {type: module, module: StartUp}
 package_name: Ticketing_System
 allow_embedding: false
-name: Clone of Ticketing System
+name: Cusmato AI Help Desk
 runtime_options:
   version: 3
   client_version: '3'
@@ -25,6 +26,7 @@ runtime_options:
   server_spec: null
   legacy_features: {class_names: true, bootstrap3: true, __dict__: true, root_container: true}
   server_spec_disabled: {base: python310-standard, requirements: ''}
+metadata: {title: Cusmato, logo_img: 'asset:favicon.png'}
 startup_form: null
 native_deps: {head_html: '<link rel="stylesheet" href="_/theme/styles/app.css"/>
 
@@ -103,6 +105,15 @@ db_schema:
     - name: name
       admin_ui: {width: 200}
       type: string
+    - name: password_hash
+      admin_ui: {order: 6, width: 200}
+      type: string
+    - name: n_password_failures
+      admin_ui: {order: 7, width: 200}
+      type: number
+    - name: confirmed_email
+      admin_ui: {order: 8, width: 200}
+      type: bool
   status:
     title: Status
     client: search

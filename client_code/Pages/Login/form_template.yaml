@@ -13,8 +13,8 @@ components:
   layout_properties: {slot: login}
   components:
   - name: label_1
-    properties: {text: Welcome to the Anvil Ticketing System, foreground: 'theme:White',
-      font_size: 26, spacing_below: large}
+    properties: {text: Cusmato AI Help Desk, foreground: 'theme:White', font_size: 26,
+      spacing_below: large, bold: true}
     type: Label
     layout_properties: {slot: spacer-slot}
   - name: login_button
@@ -24,7 +24,7 @@ components:
     event_bindings: {click: login_button_click}
     components:
     - name: label_1_copy
-      properties: {text: Log in, font_size: 20, spacing_below: none, spacing_above: none,
+      properties: {text: Inloggen, font_size: 20, spacing_below: none, spacing_above: none,
         foreground: 'theme:Primary 500', bold: true}
       type: Label
       layout_properties: {slot: button-text-slot}
